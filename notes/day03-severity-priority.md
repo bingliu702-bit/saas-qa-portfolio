@@ -133,3 +133,20 @@ Recommended classification:
 Reason:
 
 The defect affects a core checkout calculation and may cause customers to see or pay an incorrect amount. It creates financial, conversion, and customer-trust risks and should be corrected before the checkout flow is released.
+
+---
+
+## 8. Severity and Priority Classification Exercise
+
+| ID | Hypothetical Issue | Severity | Priority | Reason |
+|---|---|---|---|---|
+| SP-001 | All users are unable to log in. | Critical | Urgent | A core function is completely unavailable to every user, so access to the entire product is blocked. |
+| SP-002 | Submitted customer data is permanently lost. | Critical | Urgent | The issue causes irreversible data loss and may create legal, operational, and customer-trust risks. |
+| SP-003 | The shopping cart grand total is calculated incorrectly. | High | Urgent | A core checkout calculation is incorrect and customers may see or pay the wrong amount. |
+| SP-004 | Some users cannot complete payment. | High | High | A revenue-generating function is blocked for affected users, although the entire system remains available. |
+| SP-005 | Search results omit some matching products. | Medium | Medium | Search quality is affected, but users may still browse categories or use another method. |
+| SP-006 | An error message is unclear, but the user can continue the task. | Medium | Medium | The message may confuse users and increase support requests, but it does not block the main flow. |
+| SP-007 | A secondary button sometimes fails, but another working link is available. | Medium | Low | The function is affected, but a workaround is available and only a secondary flow is involved. |
+| SP-008 | The homepage shows the wrong date for a campaign starting tomorrow. | Low | High | The technical impact is minor, but the approaching business deadline makes the correction urgent. |
+| SP-009 | A page heading is slightly misaligned. | Low | Low | The issue is visual and does not prevent users from completing a task. |
+| SP-010 | A button color does not match the approved design. | Low | Low | The issue has a minor visual impact and does not affect functionality. |
