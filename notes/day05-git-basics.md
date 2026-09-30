@@ -24,9 +24,9 @@
 
 
 
-- \*\*Git\*\* is a version-control tool installed on the local computer.
+- **Git** is a version-control tool installed on the local computer.
 
-- \*\*GitHub\*\* is an online platform used to store and share Git repositories.
+- **GitHub** is an online platform used to store and share Git repositories.
 
 - A local change is not available on GitHub until it is committed and pushed.
 
@@ -84,17 +84,17 @@ git push
 
 
 
-- \*\*Working directory:\*\* The local files currently being edited.
+- **Working directory:** The local files currently being edited.
 
-- \*\*Staging area:\*\* The reviewed changes selected for the next commit.
+- **Staging area:** The reviewed changes selected for the next commit.
 
-- \*\*Commit:\*\* A saved local snapshot with a descriptive message.
+- **Commit:** A saved local snapshot with a descriptive message.
 
-- \*\*Remote repository:\*\* The online version of the repository stored on GitHub.
+- **Remote repository:** The online version of the repository stored on GitHub.
 
-- \*\*Push:\*\* Uploading local commits to the remote GitHub repository.
+- **Push:** Uploading local commits to the remote GitHub repository.
 
-- \*\*Clone:\*\* Downloading a complete copy of a remote repository to the local computer.
+- **Clone:** Downloading a complete copy of a remote repository to the local computer.
 
 
 
