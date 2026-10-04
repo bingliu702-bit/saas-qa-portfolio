@@ -1,38 +1,88 @@
 # Day 01 — Test Scenario Drafts
 
-## SC-001：查看商品列表
+## SC-001: Verify Product List Display
 
-- 测试目的：确认商品列表能够正常显示。
-- 前置条件：AcademyBugs网站可以正常访问。
-- 操作步骤：
-  1. 打开AcademyBugs网站。
-  2. 进入商品列表页面。
-  3. 查看商品图片、名称、价格和按钮。
-  4. 向下滚动页面。
-- 预期结果：商品列表能够正常打开；主要商品信息清晰可见；页面没有明显遮挡、重叠或无法操作的元素。
-- 实际观察：商品列表页面能够正常打开。在同一行的“DNK黄色鞋子”“深灰色牛仔裤”和“火烈鸟T恤”三个商品卡片中，中间“深灰色牛仔裤”的商品名称、价格和“添加到购物车”按钮的位置明显高于左右两个商品卡片，三个商品卡片未保持垂直对齐。
-•	执行次数：2次
-•	复现结果：2/2次均出现
-•	测试结果：Fail
-•	证据：已保存商品列表页面截图。
+### Test Objective
+
+Verify that the product list is displayed correctly.
+
+### Preconditions
+
+The AcademyBugs website is accessible.
+
+### Steps to Reproduce
+
+1. Open the AcademyBugs website.
+2. Navigate to the product list page.
+3. Check the product images, names, prices, and action buttons.
+4. Scroll down the page.
+
+### Expected Result
+
+- The product list page opens successfully.
+- The main product information is clearly visible.
+- There are no obvious overlapping, obstructed, or unusable elements.
+
+### Actual Result
+
+The product list page opens successfully.
+
+In the same row, the product name, price, and **"Add to Cart"** button of the middle product, **"Dark Gray Jeans,"** are noticeably higher than those of the products on the left and right, **"DNK Yellow Shoes"** and **"Flamingo T-shirt."**
+
+The three product cards are not vertically aligned.
+
+### Execution
+
+- **Attempts:** 2
+- **Reproduction:** Reproduced in 2 out of 2 attempts (100%)
+- **Test Result:** Fail
+
+### Evidence
+
+A screenshot of the product list page was saved as evidence.
 <img width="744" height="341" alt="image" src="https://github.com/user-attachments/assets/63ef3262-9cda-47f4-b65c-c459c8f03a1e" />
 
 
-## SC-002：修改商品数量并检查价格
+## SC-002: Modify Product Quantity and Check Price
 
-- 测试目的：确认修改商品数量后，相关价格能够正确更新。
-- 前置条件：已经打开一个可以修改数量的商品详情页。
-- 测试数据：数量从1增加到3。
-- 操作步骤：
-  1. 记录商品初始单价和数量。
-  2. 点击“+”按钮，将数量增加到3。
-  3. 查看数量和价格。
-- 预期结果：数量显示为3；如果页面显示总价，总价应等于商品单价乘以3。
-- 实际观察：商品详情页中的数量初始值为1。点击“+”按钮后，数量仍然为1，没有增加；连续点击后仍无变化。刷新页面并重新测试，结果相同。手动在数量框输入3后，数量能够显示为3，但页面价格仍显示45.00美元。该价格可能是商品单价，是否需要随数量更新需要确认产品规则。
-•	执行次数：2次
-•	复现结果：“+”按钮无响应的问题2/2次均出现
-•	测试结果：Fail
-•	证据：已保存商品详情页截图；静态截图不能完整证明按钮无响应，需补充操作录后
+- **Test Objective:** Verify that the quantity can be modified and that the related price information is updated correctly.
+- **Preconditions:** A product details page with an editable quantity field is open.
+- **Test Data:** Increase the quantity from 1 to 3.
+
+### Steps to Reproduce
+
+1. Record the initial product price and quantity.
+2. Click the **"+"** button to increase the quantity to 3.
+3. Check the displayed quantity and price.
+
+### Expected Result
+
+- The quantity should be updated to 3.
+- If the page displays a total price, the total should equal the unit price multiplied by 3.
+
+### Actual Result
+
+The initial quantity on the product details page is 1.
+
+After clicking the **"+"** button, the quantity remains 1 and does not increase. Repeated clicks produce the same result.
+
+After refreshing the page and repeating the test, the same result occurs.
+
+When 3 is entered manually in the quantity field, the quantity is displayed as 3, but the page still shows a price of USD 45.00.
+
+This price may represent the unit price. Whether the displayed price should be updated based on the quantity requires confirmation of the product requirements.
+
+### Execution
+
+- **Attempts:** 2
+- **Reproduction:** The unresponsive **"+"** button was reproduced in 2 out of 2 attempts (100%).
+- **Test Result:** Fail
+
+### Evidence
+
+A screenshot of the product details page was saved as evidence.
+
+However, a static screenshot cannot fully demonstrate that the **"+"** button is unresponsive. A screen recording should be added to provide stronger evidence.
 <img width="668" height="429" alt="image" src="https://github.com/user-attachments/assets/68d1c20b-ed1f-46cf-927a-a42af88e961a" />
 
 
