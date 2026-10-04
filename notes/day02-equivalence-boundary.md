@@ -1,104 +1,122 @@
 # Day 02 — Equivalence Partitioning and Boundary Value Analysis
 
-## 1. 等价类划分是什么
+## 1. What Is Equivalence Partitioning?
 
-等价类划分（Equivalence Partitioning）是把大量可能的输入数据分成若干组。
+Equivalence Partitioning (EP) is a test design technique that divides a large set of possible input data into several groups, or partitions.
 
-我们认为同一组数据被系统处理的方式相似，因此不必测试这一组中的每一个值，只需要选择有代表性的值进行测试。
+We assume that data within the same partition will be processed by the system in a similar way. Therefore, it is usually unnecessary to test every possible value in a partition. Instead, representative values can be selected to improve testing efficiency.
 
-### 有效等价类（Valid Partition）
+### Valid Partition
 
-符合系统规则、理论上应该被接受的数据。
+A valid partition contains data that meets the defined system rules and should theoretically be accepted by the system.
 
-例如，假设密码规则是：
+For example, assume that a password must:
 
-- 长度为 8—20 个字符
-- 允许使用字母、数字和特殊字符
+- Be 8–20 characters long
+- Allow letters, numbers, and special characters
 
-那么下面属于有效等价类：
+Examples of valid inputs:
 
 - `Test1234`
 - `Password@123`
-- 长度为8个字符的密码
-- 长度为20个字符的密码
+- An 8-character password
+- A 20-character password
 
-### 无效等价类（Invalid Partition）
+### Invalid Partition
 
-不符合系统规则、理论上应该被拒绝的数据。
+An invalid partition contains data that does not meet the defined system rules and should theoretically be rejected by the system.
 
-例如：
+Examples:
 
-- 空密码
-- 只有7个字符的密码
-- 超过20个字符的密码
-- 使用系统不允许的字符
-- 只有空格
-- 输入错误密码
+- An empty password
+- A password with only 7 characters
+- A password longer than 20 characters
+- Characters that are not allowed by the system
+- A password containing only spaces
+- An incorrect password
 
-## 2. 边界值是什么
+---
 
-边界值分析（Boundary Value Analysis）重点测试规则边缘附近的值，因为程序错误经常发生在最小值和最大值附近。
+## 2. What Are Boundary Values?
 
-假设密码允许的长度为8—20个字符，应重点检查：
+Boundary Value Analysis (BVA) focuses on values at or near the boundaries of a rule because defects frequently occur around minimum and maximum limits.
 
-| 测试位置 | 密码长度 | 预期结果 |
+Assume that the password length must be between 8 and 20 characters.
+
+The following values should be tested:
+
+| Test Position | Password Length | Expected Result |
 |---|---:|---|
-| 最小值以下 | 7 | 拒绝 |
-| 最小值 | 8 | 接受 |
-| 最小值以上 | 9 | 接受 |
-| 最大值以下 | 19 | 接受 |
-| 最大值 | 20 | 接受 |
-| 最大值以上 | 21 | 拒绝 |
+| Below minimum | 7 | Rejected |
+| Minimum | 8 | Accepted |
+| Just above minimum | 9 | Accepted |
+| Just below maximum | 19 | Accepted |
+| Maximum | 20 | Accepted |
+| Above maximum | 21 | Rejected |
 
-这六个位置可以记成：
+These six positions can be remembered as:
 
-- 最小值 − 1
-- 最小值
-- 最小值 + 1
-- 最大值 − 1
-- 最大值
-- 最大值 + 1
+- Minimum − 1
+- Minimum
+- Minimum + 1
+- Maximum − 1
+- Maximum
+- Maximum + 1
 
-## 3. 登录页面测试示例
+---
 
-| 编号 | 输入情况 | 分类 | 预期结果 |
-|---|---|---|---|
-| 1 | 正确用户名和正确密码 | 有效等价类 | 登录成功 |
-| 2 | 正确用户名和错误密码 | 无效等价类 | 登录失败并显示适当提示 |
-| 3 | 用户名为空 | 无效等价类 | 不允许登录并提示必填 |
-| 4 | 密码为空 | 无效等价类 | 不允许登录并提示必填 |
-| 5 | 用户名和密码都为空 | 无效等价类 | 不允许登录并提示必填 |
-| 6 | 密码前后带空格 | 需要确认产品规则 | 系统应按照需求处理空格 |
-| 7 | 超长密码 | 无效或边界外数据 | 系统应安全处理，不应崩溃 |
-| 8 | 密码包含特殊字符 | 根据密码规则判断 | 系统应按照规则接受或拒绝 |
-| 9 | 密码长度等于最小值 | 最小边界 | 按照规则处理 |
-| 10 | 密码长度比最小值少1 | 最小边界外 | 拒绝并显示适当提示 |
+## 3. Login Page Testing Examples
 
-## 4. 测试时需要注意
+| # | Input Condition | Classification | Expected Result |
+|---:|---|---|---|
+| 1 | Correct username and correct password | Valid partition | Login succeeds |
+| 2 | Correct username and incorrect password | Invalid partition | Login fails and an appropriate message is displayed |
+| 3 | Username is empty | Invalid partition | Login is prevented and a required-field message is displayed |
+| 4 | Password is empty | Invalid partition | Login is prevented and a required-field message is displayed |
+| 5 | Both username and password are empty | Invalid partition | Login is prevented and an appropriate required-field message is displayed |
+| 6 | Password contains leading and trailing spaces | Product rule requires confirmation | The system should handle spaces according to the defined requirements |
+| 7 | Password exceeds the maximum allowed length | Invalid partition or out-of-boundary input | The system should handle the input safely and should not crash |
+| 8 | Password contains special characters | Depends on the password rules | The system should accept or reject the input according to the defined rules |
+| 9 | Password length equals the minimum allowed length | Minimum boundary | The system should handle the input according to the defined rules |
+| 10 | Password length is one character below the minimum | Below minimum boundary | The input should be rejected and an appropriate message should be displayed |
 
-如果产品没有明确说明密码的最小长度、最大长度或允许字符，不能自己编造规则并直接判定为Bug。
+---
 
-正确做法是：
+## 4. Important Considerations During Testing
 
-1. 记录输入的数据。
-2. 记录执行的操作。
-3. 记录实际结果。
-4. 标记“产品规则需要确认”。
-5. 获得明确需求后，再判断测试是通过还是失败。
+If the product requirements do not clearly specify the minimum password length, maximum password length, or allowed characters, testers should not invent rules and immediately classify unexpected behavior as a bug.
 
-## 5. 我需要掌握的内容
+The correct approach is to:
 
-### 必须记住
+1. Record the input data.
+2. Record the actions performed.
+3. Record the actual result.
+4. Mark the case as **"Product rule requires confirmation."**
+5. Obtain clarification of the requirements before determining whether the result should be considered Pass or Fail.
 
-- Valid partition：符合规则的有效数据组。
-- Invalid partition：不符合规则的无效数据组。
-- Boundary：规则的边缘位置。
-- 边界值常检查：最小值前后和最大值前后。
+---
 
-### 只需理解
+## 5. What I Need to Know
 
-等价类划分的目的不是减少测试质量，而是用有代表性的测试数据，提高测试效率。
+### Must Remember
 
-### 后续实际使用
+- **Valid partition:** A group of valid input data that meets the defined rules.
+- **Invalid partition:** A group of invalid input data that does not meet the defined rules.
+- **Boundary:** The edge of a defined rule or input range.
+- **Boundary values:** Commonly include the values just below, at, and just above the minimum and maximum limits.
 
-在登录、注册、搜索、数量、金额、日期和表单输入测试中，使用等价类与边界值设计测试场景。
+### Only Need to Understand
+
+The purpose of Equivalence Partitioning is not to reduce testing quality. It is to improve testing efficiency by using representative values instead of testing every possible value.
+
+### Practical Applications
+
+Use Equivalence Partitioning and Boundary Value Analysis when designing test scenarios for:
+
+- Login
+- Registration
+- Search
+- Quantity
+- Amount
+- Date
+- Form inputs
