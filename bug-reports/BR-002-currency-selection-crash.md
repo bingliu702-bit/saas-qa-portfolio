@@ -30,7 +30,7 @@ A screenshot shows that selecting EUR triggered the crash overlay and displayed 
 
 A second screenshot shows that, after recovery, EUR remained selected while the cart prices were still displayed in USD.
 
-<img width="2048" height="1094" alt="image" src="https://github.com/user-attachments/assets/a2827917-4540-4b68-a069-0c4da88ddd65" />
+<img width="2589" height="1280" alt="image" src="https://github.com/user-attachments/assets/c8757726-b2c7-4d7c-9448-adc2efdb5bf7" />
 
 ### GBP Test
 
@@ -40,7 +40,7 @@ A screenshot shows that selecting GBP triggered the crash overlay and displayed 
 
 A second screenshot shows that, after recovery, GBP remained selected while the cart prices were still displayed in USD.
 
-<img width="2048" height="1010" alt="image" src="https://github.com/user-attachments/assets/f2e13723-f41f-4c82-b10b-507b4ceac42d" />
+<img width="2589" height="1280" alt="image" src="https://github.com/user-attachments/assets/4196fef3-923d-4755-8e82-4534207429ce" />
 
 ### JPY Test
 
@@ -50,7 +50,7 @@ A screenshot shows that selecting JPY triggered the crash overlay and displayed 
 
 A second screenshot shows that, after recovery, JPY remained selected while the cart prices were still displayed in USD.
 
-<img width="2048" height="1054" alt="image" src="https://github.com/user-attachments/assets/4c14eb09-f0b3-4457-9ef9-6a676a477294" />
+<img width="2589" height="1280" alt="image" src="https://github.com/user-attachments/assets/d10f1031-c370-48fc-93ed-27f305ca8421" />
 
 ## Steps to Reproduce
 
