@@ -1,83 +1,153 @@
 # Day 01 — Software Testing Basics
 
-## 1. What is software testing?
+## 1. What Is Software Testing?
 
-软件测试是通过检查软件、执行功能和比较实际结果与预期结果，发现软件中可能存在的问题，并评估产品质量和风险的过程。
+Software testing is the process of evaluating software by reviewing requirements, executing functions, comparing actual results with expected results, identifying potential defects, and assessing product quality and risk.
 
-软件测试不只发生在正式上线前，也会发生在需求分析、开发、发布以及上线后的维护阶段。它的目的不是保证软件永远不出问题，而是尽早发现缺陷、降低产品风险，并为是否发布软件提供信息。
+Software testing does not only take place before a product is released. It can also occur during requirements analysis, development, release, and post-release maintenance.
+
+The goal of testing is not to prove that software is completely defect-free. Instead, testing helps identify defects as early as possible, reduce product risk, and provide useful information for release decisions.
+
+---
 
 ## 2. Testing vs. Debugging
 
 ### Testing
 
-Testing是通过检查和执行软件来发现异常、验证需求、评估质量与风险。测试人员会设计测试场景、执行操作、比较预期结果与实际结果，并记录发现的问题。
+Testing is the process of evaluating software to identify unexpected behavior, verify requirements, and assess quality and risk.
+
+Testers design test scenarios, execute tests, compare actual results with expected results, and document the issues they discover.
 
 ### Debugging
 
-Debugging是在发现问题以后，定位问题产生的具体原因，并修改代码或其他工作成果。Debugging通常由开发人员完成。
+Debugging is the process of locating the root cause of a problem and modifying the code or other work products to fix it.
+
+Debugging is usually performed by developers.
 
 ### Difference
 
-Testing主要回答“软件哪里表现不正确、风险是什么”；Debugging主要回答“问题为什么发生，以及怎样修改”。
+Testing mainly answers:
 
-测试可以发现Failure并提供Defect线索，但测试人员不一定知道具体是哪一行代码造成了问题。开发人员通过Debugging寻找并修复根本原因。
+> Where does the software behave incorrectly, and what is the associated risk?
+
+Debugging mainly answers:
+
+> Why did the problem occur, and how should it be fixed?
+
+Testing can identify a failure and provide evidence of a possible defect, but a tester does not necessarily know which line of code caused the problem.
+
+Developers use debugging to identify and fix the underlying cause.
+
+---
 
 ## 3. Error, Defect, and Failure
 
 ### Error
 
-Error是人在需求理解、设计、编程或其他工作中犯下的错误。
+An error is a human mistake made during requirements analysis, design, coding, testing, or other activities.
 
-例如：需求规定商品打九折，但程序员误以为是直接减去10元。
+**Example:**
+
+A requirement states that a product should receive a 10% discount, but a developer misunderstands the requirement and implements a fixed $10 discount instead.
 
 ### Defect
 
-Defect是人的错误进入需求、设计或代码以后形成的缺陷。
+A defect is a flaw in a requirement, design, code, or other work product that may cause the software to behave incorrectly.
 
-例如：结账程序中的折扣计算代码写成了“原价减10元”，而不是“原价乘以90%”。
+**Example:**
+
+The checkout logic calculates the discount as "original price minus $10" instead of applying a 10% discount.
 
 ### Failure
 
-Failure是软件运行时表现出来的错误行为，即实际结果与预期结果不一致。
+A failure is an observable incorrect behavior of the software during execution, where the actual result differs from the expected result.
 
-例如：一件原价100元、应付90元的商品，在结账页面显示应付金额为95元。
+**Example:**
 
-## 4. Why testing cannot prove that software has no defects
+A product with an original price of $100 should cost $90 after a 10% discount, but the checkout page displays $95.
 
-测试只能检查已经设计并执行过的条件，但实际用户可能使用不同的设备、浏览器、数据、操作顺序和网络环境。
+### Relationship
 
-由于软件可能存在大量输入组合和使用路径，通常无法把所有情况全部测试一遍。因此，没有发现Bug只能说明“在已经测试的条件下没有发现问题”，不能证明软件中完全没有缺陷。
+The concepts can be understood as:
+
+**Human Error**  
+↓  
+**Defect in a Work Product**  
+↓  
+**Failure During Software Execution**
+
+---
+
+## 4. Why Testing Cannot Prove That Software Has No Defects
+
+Testing can only evaluate the conditions and scenarios that have been designed and executed.
+
+Real users may use different devices, browsers, data, operation sequences, network conditions, and environments.
+
+Because software can have a very large number of possible input combinations and usage paths, it is usually impossible to test every possible situation.
+
+Therefore, not finding a bug does not prove that the software contains no defects.
+
+It only means that no defect was found under the conditions that were tested.
+
+---
 
 ## 5. Example
 
-场景：程序员把商品折扣公式写错，用户结账时看到错误价格。
+### Scenario
 
-- Error：程序员错误理解了折扣规则，或者在编写公式时发生了人为错误。
-- Defect：错误的折扣计算公式被写入结账功能的代码中。
-- Failure：用户结账时，页面显示的最终价格与正确价格不一致。
+A developer implements the product discount calculation incorrectly, and the customer sees an incorrect price during checkout.
+
+- **Error:** The developer misunderstands the discount requirement or makes a mistake while implementing the calculation.
+- **Defect:** The incorrect discount calculation logic is introduced into the checkout code.
+- **Failure:** When the software runs, the checkout page displays an incorrect final price.
+
+---
 
 ## 6. Testing Activities
 
-1. Test planning：明确测试目标、范围、方法、人员、时间和需要使用的工具。
-2. Test monitoring and control：检查实际测试进度是否符合计划；如果出现延期或风险，就调整任务和安排。
-3. Test analysis：研究需求和产品，确定需要测试哪些功能、条件和风险。
-4. Test design：把需要测试的内容设计成具体测试场景、测试用例和测试数据，并写清预期结果。
-5. Test implementation：整理测试用例的执行顺序，准备测试账号、数据、环境和其他测试材料。
-6. Test execution：按照测试用例操作软件，比较实际结果与预期结果，并记录通过、失败和发现的问题。
-7. Test completion：检查测试是否达到结束条件，汇总结果、风险和未解决问题，并整理测试资料。
+### 1. Test Planning
+
+Define the test objectives, scope, approach, resources, schedule, people involved, and tools required.
+
+### 2. Test Monitoring and Control
+
+Monitor testing progress and risk against the test plan. Take corrective actions or adjust the plan when necessary.
+
+### 3. Test Analysis
+
+Review requirements and the product to identify what needs to be tested, including relevant features, conditions, and risks.
+
+### 4. Test Design
+
+Design test scenarios, test cases, test data, and expected results based on the test conditions identified during test analysis.
+
+### 5. Test Implementation
+
+Prepare the test cases and supporting materials for execution, including test data, accounts, environments, and execution order.
+
+### 6. Test Execution
+
+Execute the tests, compare actual results with expected results, record test outcomes, and report any defects found.
+
+### 7. Test Completion
+
+Determine whether the test objectives and completion criteria have been met, summarize the results and remaining risks, and organize the test documentation.
+
+---
 
 ## 7. Test Activity Flow
 
-Test Planning
-↓
-Test Monitoring and Control
-↓
-Test Analysis
-↓
-Test Design
-↓
-Test Implementation
-↓
-Test Execution
-↓
+Test Planning  
+↓  
+Test Monitoring and Control  
+↓  
+Test Analysis  
+↓  
+Test Design  
+↓  
+Test Implementation  
+↓  
+Test Execution  
+↓  
 Test Completion
