@@ -84,3 +84,45 @@ Verify that the password field masks the password by default and that the visibi
 - Screenshot: Password masked by default.
 - Screenshot: Password displayed in plain text after clicking the visibility icon.
 - Screenshot: Password masked again after clicking the visibility icon a second time.
+  
+---
+
+## SC-017: Verify Checkbox Selection and Deselection
+
+### Test Objective
+Verify that checkboxes can be selected and deselected correctly and that each checkbox can be selected independently.
+
+### Preconditions
+- The Checkbox test page is accessible.
+- `checkbox 1` and `checkbox 2` are displayed.
+
+### Test Data
+- `checkbox 1`
+- `checkbox 2`
+
+### Test Steps
+1. Open the Checkbox test page.
+2. Observe the current state of `checkbox 1` and `checkbox 2`.
+3. Click an unchecked checkbox.
+4. Observe its state.
+5. Click the other checkbox and observe whether both checkboxes can be selected at the same time.
+6. Click a selected checkbox again.
+7. Observe whether it returns to the unchecked state.
+
+### Expected Result
+- Clicking an unchecked checkbox should change it to the selected state.
+- `checkbox 1` and `checkbox 2` should be independently selectable.
+- Clicking a selected checkbox again should return it to the unchecked state.
+
+### Actual Result
+- Clicking an unchecked checkbox changed it to a selected state with a visible check mark.
+- `checkbox 1` and `checkbox 2` could be selected at the same time.
+- Clicking a selected checkbox again removed the check mark and returned it to the unchecked state.
+
+### Status
+**Pass**
+
+### Evidence
+- Screenshot: `checkbox 1` selected and `checkbox 2` deselected.
+- Screenshot: Both checkboxes selected.
+- Screenshot: Both checkboxes deselected.
