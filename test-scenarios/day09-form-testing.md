@@ -44,7 +44,7 @@ Verify that the email field correctly validates valid and invalid email formats.
 - Screenshot: Invalid email format `test@`
 - Screenshot: Valid email format `yuyu@gmail.com`
 
-- ---
+---
 
 ## SC-016: Verify Password Visibility Toggle
 
