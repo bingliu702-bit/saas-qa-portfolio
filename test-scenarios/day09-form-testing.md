@@ -122,6 +122,49 @@ Verify that checkboxes can be selected and deselected correctly and that each ch
 ### Status
 **Pass**
 
+---
+
+## SC-018: Verify Country/Region Code Dropdown Selection
+
+### Test Objective
+Verify that the country/region code dropdown can be opened, an option can be selected, and the current selection can be changed to another option.
+
+### Preconditions
+- The Stan registration page is accessible.
+- The phone number field and country/region code dropdown are displayed.
+
+### Test Data
+- `Afghanistan +93`
+- `Albania +355`
+
+### Test Steps
+1. Open the Stan registration page.
+2. Click the country/region code dropdown next to the phone number field.
+3. Observe the dropdown list.
+4. Select `Afghanistan +93`.
+5. Observe the selected country/region and calling code.
+6. Open the dropdown again.
+7. Select `Albania +355`.
+8. Observe the selected country/region and calling code.
+
+### Expected Result
+- The dropdown should open and display available countries/regions with their calling codes.
+- After selecting `Afghanistan +93`, the current selection should update to Afghanistan with calling code `+93`.
+- After selecting `Albania +355`, the current selection should update to Albania with calling code `+355`, replacing the previous selection.
+
+### Actual Result
+- The dropdown opened successfully and displayed countries/regions with their calling codes.
+- After selecting `Afghanistan +93`, the displayed calling code changed to `+93`.
+- After selecting `Albania +355`, the displayed calling code changed to `+355`, replacing the previous selection.
+
+### Status
+**Pass**
+
+### Evidence
+- Screenshot: Country/region code dropdown expanded.
+- Screenshot: `Afghanistan +93` selected.
+- Screenshot: `Albania +355` selected after changing the selection.
+
 ### Evidence
 - Screenshot: `checkbox 1` selected and `checkbox 2` deselected.
 - Screenshot: Both checkboxes selected.
