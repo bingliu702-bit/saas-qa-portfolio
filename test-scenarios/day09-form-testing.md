@@ -119,6 +119,11 @@ Verify that checkboxes can be selected and deselected correctly and that each ch
 - `checkbox 1` and `checkbox 2` could be selected at the same time.
 - Clicking a selected checkbox again removed the check mark and returned it to the unchecked state.
 
+  ### Evidence
+- Screenshot: `checkbox 1` selected and `checkbox 2` deselected.
+- Screenshot: Both checkboxes selected.
+- Screenshot: Both checkboxes deselected.
+
 ### Status
 **Pass**
 
@@ -164,8 +169,3 @@ Verify that the country/region code dropdown can be opened, an option can be sel
 - Screenshot: Country/region code dropdown expanded.
 - Screenshot: `Afghanistan +93` selected.
 - Screenshot: `Albania +355` selected after changing the selection.
-
-### Evidence
-- Screenshot: `checkbox 1` selected and `checkbox 2` deselected.
-- Screenshot: Both checkboxes selected.
-- Screenshot: Both checkboxes deselected.
