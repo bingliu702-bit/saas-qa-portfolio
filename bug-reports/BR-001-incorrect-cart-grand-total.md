@@ -68,8 +68,7 @@ The issue should be investigated and fixed before the checkout flow is released 
 
 ## Evidence
 
-<img width="1122" height="563" alt="image" src="https://github.com/user-attachments/assets/ae0a8d64-1a95-4422-a9e3-8421092cb331" />
-
+<img width="2589" height="1280" alt="image" src="https://github.com/user-attachments/assets/d539c8cf-bf82-4606-9789-801a2650674d" />
 
 The screenshot shows:
 
