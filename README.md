@@ -36,3 +36,7 @@ Manual QA testing portfolio with test scenarios, bug reports, and testing notes.
 
 - [Week 3 QA Review](notes/day20-week3-review.md)
 - [Week 3 English QA Report](notes/day21-week3-english-report.md)
+
+### Portfolio Overview
+
+- [Manual QA Portfolio Overview](portfolio-overview.md)
