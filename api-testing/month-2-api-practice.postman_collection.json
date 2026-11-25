@@ -1,0 +1,328 @@
+{
+  "info": {
+    "_postman_id": "dc28488d-0f35-4984-bfc0-e6a5f921f612",
+    "name": "Month 2 API Practice",
+    "description": "# Month 2 API Practice Collection\n\n## 1\\. Purpose\n\nThis collection was created to practice and demonstrate fundamental API testing skills using Postman.\n\nThe practice covers HTTP methods, status codes, query parameters, request bodies, JSON responses, collection variables, and environment variables.\n\n## 2\\. Base URL\n\nThe collection uses two public API services:\n\n| Variable | Base URL |\n| --- | --- |\n| baseUrl | [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com) |\n| echoBaseUrl | [https://postman-echo.com](https://postman-echo.com) |\n\nCollection variables are used to reduce duplicate URL configuration and improve maintainability.\n\n## 3\\. Folder Structure\n\nThe collection contains 13 API requests organized into four folders.\n\n| Folder | Description | Requests |\n| --- | --- | --- |\n| Users | User-related API requests | 2 |\n| Posts | Post retrieval, creation, update, and deletion | 6 |\n| Comments | Comment retrieval and filtering | 2 |\n| HTTP Basics | Basic HTTP requests and query parameter validation | 3 |\n\n## 4\\. How to Run\n\n1. Open the collection in Postman.\n    \n2. Verify that both collection variables are configured correctly.\n    \n3. Select No Environment for normal API testing.\n    \n4. Open a request from the appropriate folder.\n    \n5. Click Send to execute the request.\n    \n6. Verify the status code and response body against the expected results.\n    \n\nThe QA Practice environment is used to demonstrate that an environment variable takes precedence over a collection variable with the same name.\n\nAfter completing the environment variable experiment, switch back to No Environment.\n\n## 5\\. Known Limitations\n\n- JSONPlaceholder is a simulated API. POST, PATCH, and DELETE responses do not represent persistent changes on the server.\n    \n- Postman Echo is used to practice HTTP requests and validate query parameters rather than real business functionality.\n    \n- Response times may vary depending on network conditions.\n    \n- The QA Practice environment is a variable precedence experiment, not a real QA server environment.\n    \n- Authentication, authorization, and automated assertions are not included in the current practice scope.\n    \n\n## 6\\. Tools and Test Approach\n\n- Tool: Postman\n    \n- Test approach: Manual API testing\n    \n- HTTP methods: GET, POST, PATCH, DELETE\n    \n- Validation: Status codes, JSON response structures, field values, and query parameters.\n    \n\nEndFragment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "Get Post by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Posts by User ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts?userId=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Empty Posts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts?userId=999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "999"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"API Practice\",\r\n    \"body\": \"Day 33 Collection Practice\",\r\n    \"userId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/posts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Post",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"body\": \"Updated content Day 31\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/posts/15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Get Comments by Post ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/comments?postId=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "comments"
+              ],
+              "query": [
+                {
+                  "key": "postId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nested Comments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/1/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1",
+                "comments"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "HTTP Basics",
+      "item": [
+        {
+          "name": "GET Basic Request",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{echoBaseUrl}}/get",
+              "host": [
+                "{{echoBaseUrl}}"
+              ],
+              "path": [
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET with Query Parameters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{echoBaseUrl}}/get?product=book&quantity=2",
+              "host": [
+                "{{echoBaseUrl}}"
+              ],
+              "path": [
+                "get"
+              ],
+              "query": [
+                {
+                  "key": "product",
+                  "value": "book"
+                },
+                {
+                  "key": "quantity",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET with Multiple Parameters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{echoBaseUrl}}/get?category=electronics&page=2&limit=10",
+              "host": [
+                "{{echoBaseUrl}}"
+              ],
+              "path": [
+                "get"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "electronics"
+                },
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://jsonplaceholder.typicode.com"
+    },
+    {
+      "key": "echoBaseUrl",
+      "value": "https://postman-echo.com"
+    }
+  ]
+}
